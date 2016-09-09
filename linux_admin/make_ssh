@@ -1,0 +1,34 @@
+#!/bin/bash
+#Create and modify a .ssh folder
+#Run as sudo or root
+
+# Make sure only root can run our script
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root (or sudo)" 1>&2
+   exit 1
+fi
+
+#Check to make sure a username was passed
+if [ -z "$1" ] ; then 
+   echo "Please pass a new username as the first argument"
+   exit 1
+fi
+
+USERNAME=$1
+HOMEDIR=/home/$USERNAME
+cd $HOMEDIR
+#Create an ssh folder and then set the permissions correctly.
+mkdir .ssh
+touch .ssh/authorized_keys
+chmod 700 .ssh
+chmod 600 .ssh/authorized_keys
+chown -R $USERNAME .ssh
+chgrp -R $USERNAME .ssh
+#Add this user to the sshd_config file so that
+#they can log in.
+#Parameters for this script are -i (in place edit of file)
+#Find the line with AllowUsers and then search to the end of that
+#line and append the username. 
+sed -i "/^AllowUsers/ s/$/ $USERNAME/" /etc/ssh/sshd_config
+#Restart SSH - the old sshd will remain open for any active connections.
+service ssh restart
