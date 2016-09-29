@@ -18,7 +18,7 @@ USERNAME=$1
 HOMEDIR=/home/$USERNAME
 cd $HOMEDIR
 #Create an ssh folder and then set the permissions correctly.
-mkdir .ssh
+mkdir -p .ssh
 touch .ssh/authorized_keys
 chmod 700 .ssh
 chmod 600 .ssh/authorized_keys
@@ -28,7 +28,18 @@ chgrp -R $USERNAME .ssh
 #they can log in.
 #Parameters for this script are -i (in place edit of file)
 #Find the line with AllowUsers and then search to the end of that
-#line and append the username. 
-sed -i "/^AllowUsers/ s/$/ $USERNAME/" /etc/ssh/sshd_config
+#line and append the username.
+
+SSHCFG='/etc/ssh/sshd_config'
+
+#if grep -Fxq "AllowUsers" $SSHCFG
+FOUND=`grep -c "AllowUsers" $SSHCFG`
+if [ $FOUND -eq 0 ]; then
+    echo "Adding AllowUsers string"
+    echo "AllowUsers $USERNAME" >> $SSHCFG
+else
+    echo "Updating AllowUsers"
+    sed -i "/^AllowUsers/ s/$/ $USERNAME/" $SSHCFG
+fi
 #Restart SSH - the old sshd will remain open for any active connections.
 service ssh restart
