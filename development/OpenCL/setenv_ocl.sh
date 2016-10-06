@@ -11,21 +11,21 @@ PREVPATH=/home/$USERNAME/bin:/home/$USERNAME/.local/bin:/home/$USERNAME/bin:/hom
 
 if [ -z $1 ]
 then
-        echo "Please enter 1, 2, or 3 (i64, Beignet, CUDA) as an argument"
+        echo "Please enter 1, 2, or 3 (Intel SDK 2016, AMD, CUDA) as an argument"
         exit
 fi
 
 if [ $1 == "1" ];
 then
         #SDK has include files but /etc/OpenCl/vendors/intel64.icd points to other directory for lib
-        export PATH=/opt/intel/opencl-1.2-4.4.0.117/bin:$PREVPATH
-        export LD_LIBRARY_PATH=/opt/intel/opencl-1.2-4.4.0.117/lib64:/opt/intel/opencl-1.2-5.0.8/lib64:/usr/local/lib:/usr/lib64:/usr/lib
-        export OCL_INCLUDES=/opt/intel/opencl-1.2-4.4.0.117/include
+        export PATH=/opt/intel/intel-opencl-1.2-6.2.0.1760/opencl-1.2-sdk-6.2.0.1760/bin:/opt/intel/intel-opencl-1.2-6.2.0.1760/gt_debugger_2016.0/bin:$PREVPATH
+        export LD_LIBRARY_PATH=/opt/intel/intel-opencl-1.2-6.2.0.1760/opencl-1.2-sdk-6.2.0.1760/lib64:/usr/local/lib:/usr/lib64:/usr/lib
+        export OCL_INCLUDES=/opt/intel/intel-opencl-1.2-6.2.0.1760/opencl-1.2-sdk-6.2.0.1760/include
 elif [ $1 == "2" ];
 then
         export PATH=:$PREVPATH
-        export LD_LIBRARY_PATH=/usr/local/lib/beignet/:/usr/local/lib:/usr/lib64:/usr/lib
-	export OCL_INCLUDES=/usr/local/lib/beignet/include:/usr/local/include
+        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+	export OCL_INCLUDES=
 elif [ $1 == "3" ];
 then
         export PATH=/usr/local/cuda/bin:$PREVPATH
