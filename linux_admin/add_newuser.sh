@@ -18,12 +18,11 @@ USERNAME=$1
 DATE=`date +%m%d%y`
 PASSWD="$DATE"
 #sudo or admin group, if desired
-#GROUPS=adm,sudo,specialusers
 #Otherwise just add them to the project group
-GROUPS=specialusers
-echo $PASSWD
+GRPVAL='sudo,hpcusers'
 #Add a new user with Linux useradd
 #Make sure to create home dir (-m) and set the password
-useradd -m -p $PASSWD -G $GROUPS $USERNAME
+echo "useradd -m -p $PASSWD -G ${GRPVAL} $USERNAME"
+useradd -m -p $PASSWD -G ${GRPVAL} $USERNAME
 #Force their password to expire on next login
 #passwd -e $USERNAME

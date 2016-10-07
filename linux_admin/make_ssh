@@ -32,7 +32,10 @@ chgrp -R $USERNAME .ssh
 
 SSHCFG='/etc/ssh/sshd_config'
 
-#if grep -Fxq "AllowUsers" $SSHCFG
+#If plaintext passwords haven't been disabled, then disable them.
+#NOTE: After running this, only key-based remote access will work.
+#sed -i '/'"PasswordAuthentication yes"'/s/.*/'"PasswordAuthentication no"'/' $SSHCFG
+
 FOUND=`grep -c "AllowUsers" $SSHCFG`
 if [ $FOUND -eq 0 ]; then
     echo "Adding AllowUsers string"

@@ -1,5 +1,7 @@
 #!/bin/bash
 #Run to install an initial development environment on Ubuntu
+#Mainly this is useful to keep track of pacakges you need to
+#get started with work.
 #Run as sudo or root
 
 # Make sure only root can run our script
@@ -10,6 +12,9 @@ fi
 
 PKGS="openssh-server tmux screen vim-gnome"
 echo "Installing packages: $PKGS"
-#Add a new user with Linux useradd
-#Make sure to create home dir (-m) and set the password
-apt-get install $PKGS
+apt-get -y install $PKGS
+
+#Packages to install Intel's OpenCL SDK and for Hands On OpenCL repo
+OCL_PKGS="dkms lsb-core default-jdk mono-complete mesa-common-dev"
+#Also need to do some symbolic linking for the Intel OpenCL SDK on 16.04
+#sudo ln -s /usr/lib/x86_64-linux-gnu/libicui18n.so.55 /usr/lib/x86_64-linux-gnu/libicui18n.so.52
