@@ -2,8 +2,8 @@ EXECUTABLES = cl-demo print-devices
 
 all: $(EXECUTABLES)
 
-ifdef OCL_INCLUDES
-  CL_CFLAGS = -I$(OCL_INCLUDES)
+ifdef OCL_INCL
+  CL_CFLAGS = -I$(OCL_INCL)
 endif
 
 ifdef OCL_LIB
