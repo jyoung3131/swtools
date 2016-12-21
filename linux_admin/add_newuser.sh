@@ -19,7 +19,7 @@ DATE=`date +%m%d%y`
 PASSWD="$DATE"
 #sudo or admin group, if desired
 #Otherwise just add them to the project group
-GRPVAL='sudo,hpcusers'
+GRPVAL='sudo,hmcusers'
 #Add a new user with Linux useradd
 #Make sure to create home dir (-m) and set the password
 echo "useradd -m -p $PASSWD -G ${GRPVAL} $USERNAME"

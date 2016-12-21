@@ -2,13 +2,15 @@
 #Run to install an initial development environment on Ubuntu
 #Mainly this is useful to keep track of pacakges you need to
 #get started with work.
+
 #Run as sudo or root
 
+#Source some common utility functions. Make sure
+#to source them so they don't execute in a sub-shell!
+. utility_funcs.shinc
+
 # Make sure only root can run our script
-if [ "$(id -u)" != "0" ]; then
-   echo "This script must be run as root (or sudo)" 1>&2
-   exit 1
-fi
+run_as_sudo
 
 PKGS="openssh-server tmux screen vim-gnome"
 echo "Installing packages: $PKGS"
