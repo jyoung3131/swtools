@@ -18,9 +18,10 @@ fi
 if [ $1 == "1" ];
 then
         #SDK has include files but /etc/OpenCl/vendors/intel64.icd points to other directory for lib
-        export PATH=/opt/intel/intel-opencl-1.2-6.2.0.1760/opencl-1.2-sdk-6.2.0.1760/bin:/opt/intel/intel-opencl-1.2-6.2.0.1760/gt_debugger_2016.0/bin:$PREVPATH
-        export LD_LIBRARY_PATH=/opt/intel/intel-opencl-1.2-6.2.0.1760/opencl-1.2-sdk-6.2.0.1760/lib64:/usr/local/lib:/usr/lib64:/usr/lib
-        export OCL_INCL=/opt/intel/intel-opencl-1.2-6.2.0.1760/opencl-1.2-sdk-6.2.0.1760/include
+        export PATH=/opt/intel/opencl-sdk/bin:/opt/intel/opencl-sdk/gt_debugger_2016.0/bin:$PREVPATH
+        export LD_LIBRARY_PATH=/opt/intel/opencl-sdk/lib64:/usr/local/lib:/usr/lib64:/usr/lib
+        export OCL_LIB=/opt/intel/opencl-sdk/lib64
+        export OCL_INCL=/opt/intel/openlcl-sdk/include
 elif [ $1 == "2" ];
 then
         export PATH=:$PREVPATH
