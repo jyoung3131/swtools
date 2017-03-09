@@ -20,8 +20,8 @@ then
         #SDK has include files but /etc/OpenCl/vendors/intel64.icd points to other directory for lib
         export PATH=/opt/intel/opencl-sdk/bin:/opt/intel/opencl-sdk/gt_debugger_2016.0/bin:$PREVPATH
         export LD_LIBRARY_PATH=/opt/intel/opencl-sdk/lib64:/usr/local/lib:/usr/lib64:/usr/lib
-        export OCL_LIB=/opt/intel/opencl-sdk/lib64
-        export OCL_INCL=/opt/intel/openlcl-sdk/include
+        export OCL_LIB=/opt/intel/openclr4
+        export OCL_INCL=/opt/intel/openlclr4/include
 elif [ $1 == "2" ];
 then
         export PATH=:$PREVPATH
@@ -33,6 +33,12 @@ then
         export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/lib:/usr/local/lib:/usr/lib64:/usr/lib
         export OCL_LIB=/usr/local/cuda/lib64
         export OCL_INCL=/usr/local/cuda/include
+elif [ $1 == "4" ];
+then
+        export PATH=/usr/local/oclgrind/bin:$PREVPATH
+        export LD_LIBRARY_PATH=/usr/local/oclgrind/lib:/usr/local/lib:/usr/lib64:/usr/lib
+        export OCL_LIB=/usr/local/oclgrind/lib
+        export OCL_INCL=/usr/local/oclgrind/include
 fi
 
 echo "PATH: $PATH"

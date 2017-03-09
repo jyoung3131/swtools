@@ -11,10 +11,10 @@ ifdef OCL_LIB
 endif
 
 print-devices: print-devices.c cl-helper.c
-	gcc $(CL_CFLAGS) $(CL_LDFLAGS) -std=gnu99 -o$@ $^ -lrt -lOpenCL
+	gcc -g $(CL_CFLAGS) $(CL_LDFLAGS) -std=gnu99 -o$@ $^ -lrt ${CL_LDFLAGS} -lOpenCL
 
 cl-demo: cl-demo.c cl-helper.c
-	gcc $(CL_CFLAGS) $(CL_LDFLAGS) -std=gnu99 -o$@ $^ -lrt -lOpenCL
+	gcc -g $(CL_CFLAGS) $(CL_LDFLAGS) -std=gnu99 -o$@ $^ -lrt ${CL_LDFLAGS} -lOpenCL
 
 clean:
 	rm -f $(EXECUTABLES) *.o
