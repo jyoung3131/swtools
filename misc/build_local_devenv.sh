@@ -64,8 +64,12 @@ rm -rf ncurses-${NCURSESV}
 # tmux #
 tar xvzf tmux-${TMUXV}.tar.gz
 cd tmux-${TMUXV}
-./configure --enable-static CFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-static -static-libgcc -L$HOME/local/lib -L$HOME/local/include/ncurses -L$HOME/local/include -levent"
-CPPFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-static -static-libgcc -L$HOME/local/include -L$HOME/local/include/ncurses -L$HOME/local/lib -levent" make -j4
+# Compile tmux with static libraries (no shared lib dependencies). Note that this requires that libc.a be installed or the configure script will fail
+#./configure --enable-static CFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-static -static-libgcc -L$HOME/local/lib -L$HOME/local/include/ncurses -L$HOME/local/include -levent"
+#CPPFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-static -static-libgcc -L$HOME/local/include -L$HOME/local/include/ncurses -L$HOME/local/lib -levent" make -j4
+# OR compile tmux with shared libraries
+./configure CFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-L$HOME/local/lib -L$HOME/local/include/ncurses -L$HOME/local/include -levent"
+CPPFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-L$HOME/local/include -L$HOME/local/include/ncurses -L$HOME/local/lib -levent" make -j4
 cp tmux $HOME/local/bin
 cd ..
 rm tmux-${TMUXV}.tar.gz
