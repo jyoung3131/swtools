@@ -1,0 +1,19 @@
+#------Haswell Xeon
+alias bahamut='ssh -X bahamut.cc.gt.atl.ga.us'
+alias ccontrol='ssh -X control.cc.gatech.edu'
+alias jeangrey='ssh -X jeangrey.cc.gatech.edu'
+alias keystone='ssh -X keystone.cc.gt.atl.ga.us'
+alias kid40='ssh -X jyoung9@kid40.cc.gatech.edu'
+alias kid41='ssh -X jyoung9@kid41.cc.gatech.edu'
+alias loveland='ssh -X loveland.cc.gt.atl.ga.us'
+alias quantum='ssh -X quantum.cc.gt.atl.ga.us'
+#------K40 and IB QDR
+alias ifrit='ssh -X jyoung@ifrit.cc.gt.atl.ga.us'
+alias shiva='ssh -X jyoung@shiva.cc.gt.atl.ga.us'
+#HPC Garage
+alias blikle='ssh -X jyoung9@blikle.cc.gt.atl.ga.us'
+#FPGA boxes
+alias pushrod='ssh -X jyoung9@pushrod.cc.gt.atl.ga.us'
+alias gearshaft='ssh -X jyoung9@gearshaft.cc.gt.atl.ga.us'
+#ORNL and other clusters
+alias beacon='ssh -X beacon-login1.nics.utk.edu'
