@@ -1,0 +1,37 @@
+#Display usage for scp_to_server function
+display_scps_usage()
+{
+    echo "This script takes 2 or more parameters. Specify the local path for files or the full path to a file." 
+    echo -e "Usage:scp_<to/from>_server <username> <1 or more filename arguments> \n"
+}
+
+#BASH function to copy files to Rhea - takes 1 or more parameters
+scp_to_server() 
+{
+    if [  $# -le 1 ] 
+    then 
+		display_scps_usage
+		return
+    fi 
+ 
+    USERNAME=$1
+    SERVER=rhea.ccs.ornl.gov
+    #Use readlink to read the local directory (resolving symbolic links)
+    #LOCALDIR=`readlink -f .`
+
+    #Pass everything after the first parameter (username) as a file to be copied
+    LOCALFILES="${@:2}"
+    REMOTEDIR=/autofs/nccs-svm1_home1/${USERNAME}
+   
+    #Build the complete command string
+    CMD_STRING="scp ${LOCALFILES} ${USERNAME}@${SERVER}:${REMOTEDIR}" 
+    #Print the command stringi for debugging purposes
+    echo $CMD_STRING
+    #Evaluate the command
+    eval $CMD_STRING
+}
+
+##Copy specific files from ORNL's Rhea (or another server)
+scp_from_server() 
+{ 
+}
