@@ -26,6 +26,7 @@ alias rgneurohost='ssh -X jyoung9@rg-neuro-host.crnch.gatech.edu'
 alias rgflubber='ssh -X jyoung9@flubber.crnch.gatech.edu'
 alias rgcubed='ssh -X jyoung9@rg-fpga-cubed.crnch.gatech.edu'
 alias rgtoolbox='ssh -X jyoung9@toolbox.crnch.gatech.edu'
+alias rgfiles='ssh -X jyoung9@files.crnch.gatech.edu'
 #CC machines
 alias wingtip1='ssh -X jyoung9@wingtip-bigmem1.cc.gatech.edu'
 alias wingtip2='ssh -X jyoung9@wingtip-bigmem2.cc.gatech.edu'
@@ -37,3 +38,6 @@ alias csenvme='ssh -X jyoung9@csenvme.cc.gatech.edu'
 #Power 9 boxes Newell1-3
 alias newell='ssh -X jyoung9@newell.cc.gatech.edu'
 alias dgx1='ssh -X jyoung9@dgx.cc.gatech.edu'
+#PACE
+alias pace='ssh -X jyoung9@login-s.pace.gatech.edu'
+

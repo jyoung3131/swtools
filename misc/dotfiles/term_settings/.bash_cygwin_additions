@@ -1,0 +1,8 @@
+#Add or source these additions from your .bashrc
+
+#Add names of remote machines
+source ~/.bash_aliases
+
+#Couple a local instance of Pageant to one running in Windows. 
+#Based on install from https://github.com/cuviper/ssh-pageant
+eval $(/usr/local/bin/ssh-pageant -ra $TEMP/.ssh-pageant)
