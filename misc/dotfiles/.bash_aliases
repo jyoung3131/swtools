@@ -1,46 +1,54 @@
 #Jeff machines
-alias bock='ssh -X jyoung9@bock.cc.gatech.edu'
-alias eisbock='ssh -X jyoung9@eisbock.cc.gatech.edu'
+USERNAME=jyoung9
+UCAMSNAME=jyoung
+alias bock='ssh -X ${USERNAME}@bock.cc.gatech.edu'
+alias eisbock='ssh -X ${USERNAME}@eisbock.cc.gatech.edu'
 #------Wattprof
-alias dunkel='ssh -X jyoung9@dunkel.cc.gt.atl.ga.us'
-alias moka='ssh -X jyoung9@moka.cc.gt.atl.ga.us'
+alias dunkel='ssh -X ${USERNAME}@dunkel.cc.gt.atl.ga.us'
+alias moka='ssh -X ${USERNAME}@moka.cc.gt.atl.ga.us'
 #HPC Garage
-alias blikle='ssh -X jyoung9@blikle.cc.gt.atl.ga.us'
-alias condesa='ssh -X jyoung9@condesa.cc.gatech.edu'
-alias diskaveri='ssh -X jyoung9@diskaveri.cc.gatech.edu'
-alias supernovae='ssh -X jyoung9@supernovae.cc.gatech.edu'
+alias blikle='ssh -X ${USERNAME}@blikle.cc.gt.atl.ga.us'
+alias condesa='ssh -X ${USERNAME}@condesa.cc.gatech.edu'
+alias diskaveri='ssh -X ${USERNAME}@diskaveri.cc.gatech.edu'
+alias supernovae='ssh -X ${USERNAME}@supernovae.cc.gatech.edu'
 #ORNL and other clusters
 alias excl='ssh -X excl.ornl.gov'
-alias rhea='ssh -X jyoung@rhea.ccs.ornl.gov'
-alias wombat='ssh -Y jyoung9@wombat-login1.ccs.ornl.gov'
+alias rhea='ssh -X ${UCAMSNAME}@rhea.ccs.ornl.gov'
+alias wombat='ssh -Y ${USERNAME}@wombat-login1.ccs.ornl.gov'
 alias knl='ssh -X login-knl1.stampede.tacc.utexas.edu'i
-alias cori='ssh -X jyoung9@cori.nersc.gov'
+alias cori='ssh -X ${USERNAME}@cori.nersc.gov'
 #Rogues Gallery - need to be on campus vpn or log in via rglogin
-alias rglogin='ssh -X jyoung9@rg-login.crnch.gatech.edu'
-alias rgemu='ssh -X jyoung9@rg-emu-dev.crnch.gatech.edu'
-alias rgfpga1='ssh -X jyoung9@rg-fpga-dev-1.crnch.gatech.edu'
-alias rgfpga2='ssh -X jyoung9@rg-fpga-dev-2.crnch.gatech.edu'
-alias rgdev='ssh -X jyoung9@rg-dev.crnch.gatech.edu'
-alias rgneuro='ssh -X jyoung9@rg-neuro-dev.crnch.gatech.edu'
-alias rgneurohost='ssh -X jyoung9@rg-fpaa-host.crnch.gatech.edu'
-alias rgflubber='ssh -X jyoung9@flubber.crnch.gatech.edu'
-alias rgcubed='ssh -X jyoung9@rg-fpga-cubed.crnch.gatech.edu'
-alias rgtoolbox='ssh -X jyoung9@toolbox.crnch.gatech.edu'
-alias rgfiles='ssh -X jyoung9@files.crnch.gatech.edu'
+alias rglogin='ssh -Y ${USERNAME}@rg-login.crnch.gatech.edu'
+alias rgemu='ssh -X ${USERNAME}@rg-emu-dev.crnch.gatech.edu'
+alias rgfpga1='ssh -X ${USERNAME}@rg-fpga-dev-1.crnch.gatech.edu'
+alias rgfpga2='ssh -X ${USERNAME}@rg-fpga-dev-2.crnch.gatech.edu'
+alias rgdev='ssh -X ${USERNAME}@rg-dev.crnch.gatech.edu'
+alias rgneuro='ssh -X ${USERNAME}@rg-neuro-dev.crnch.gatech.edu'
+alias rgneurohost='ssh -X ${USERNAME}@rg-fpaa-host.crnch.gatech.edu'
+alias rgflubber='ssh -X ${USERNAME}@flubber.crnch.gatech.edu'
+alias rgcubed='ssh -X ${USERNAME}@rg-fpga-cubed.crnch.gatech.edu'
+alias rgtoolbox='ssh -Y ${USERNAME}@toolbox.crnch.gatech.edu'
+alias rgfiles='ssh -X ${USERNAME}@files.crnch.gatech.edu'
 #CC machines
-alias wingtip1='ssh -X jyoung9@wingtip-bigmem1.cc.gatech.edu'
-alias wingtip2='ssh -X jyoung9@wingtip-bigmem2.cc.gatech.edu'
-alias wingtip1gpu='ssh -X jyoung9@wingtip-gpu1.cc.gatech.edu'
+alias wingtip1='ssh -X ${USERNAME}@wingtip-bigmem1.cc.gatech.edu'
+alias wingtip2='ssh -X ${USERNAME}@wingtip-bigmem2.cc.gatech.edu'
+alias wingtip1gpu='ssh -X ${USERNAME}@wingtip-gpu1.cc.gatech.edu'
 #P100 GPU
-alias wingtip2gpu='ssh -X jyoung9@wingtip-gpu2.cc.gatech.edu'
+alias wingtip2gpu='ssh -X ${USERNAME}@wingtip-gpu2.cc.gatech.edu'
 #Scratch box but also has Skylake Gold 
-alias csenvme='ssh -X jyoung9@csenvme.cc.gatech.edu'
-#Power 9 boxes Newell1-3
-alias newell='ssh -X jyoung9@newell.cc.gatech.edu'
-alias dgx1='ssh -X jyoung9@dgx.cc.gatech.edu'
+alias csenvme='ssh -X ${USERNAME}@csenvme.cc.gatech.edu'
+#Power8: power8, power8b, power8c
+alias newell='ssh -X ${USERNAME}@newell1.cc.gatech.edu'
+#Power9: newell1-3
+alias newell='ssh -X ${USERNAME}@newell1.cc.gatech.edu'
+#DGX
+alias dgxstation='ssh -Y ${USERNAME}@dgxstation.cc.gatech.edu'
+alias dgx1='ssh -Y ${USERNAME}@dgx.cc.gatech.edu'
 #PACE
-alias pace='ssh -X jyoung9@login-s.pace.gatech.edu'
+alias gthive='ssh -Y ${USERNAME}@login-hive.pace.gatech.edu'
+alias pace='ssh -Y ${USERNAME}@login-s.pace.gatech.edu'
 #Cray PiconGPU
 alias ccoe='ssh coe0012@poplar.cray.com'
-alias hzdr=''
-
+alias hzdr='ssh -Y jy140476@uts.hzdr.de'
+alias summit='ssh -X ${UCAMSNAME}@summit.olcf.ornl.gov'
+alias summithome='ssh -X ${UCAMSNAME}@home.ccs.ornl.gov'
