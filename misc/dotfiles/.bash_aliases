@@ -38,6 +38,8 @@ alias wingtip1gpu='ssh -X ${USERNAME}@wingtip-gpu1.cc.gatech.edu'
 alias wingtip2gpu='ssh -X ${USERNAME}@wingtip-gpu2.cc.gatech.edu'
 #Scratch box but also has Skylake Gold 
 alias csenvme='ssh -X ${USERNAME}@csenvme.cc.gatech.edu'
+#KNL box
+alias caesarea='ssh -X ${USERNAME}@caesarea.cc.gatech.edu'
 #Power8: power8, power8b, power8c
 alias power8='ssh -X ${USERNAME}@power8.cc.gatech.edu'
 #Power9: newell1-3
@@ -47,7 +49,9 @@ alias dgxstation='ssh -Y ${USERNAME}@dgxstation.cc.gatech.edu'
 alias dgx1='ssh -Y ${USERNAME}@dgx1.cc.gatech.edu'
 #PACE
 alias gthive='ssh -Y ${USERNAME}@login-hive.pace.gatech.edu'
-alias pace='ssh -Y ${USERNAME}@login-s.pace.gatech.edu'
+alias gtpaceice='ssh -Y ${USERNAME}@pace-ice.pace.gatech.edu'
+alias cocpaceice='ssh -Y ${USERNAME}@coc-ice.pace.gatech.edu'
+alias gtphoenix='ssh -Y ${USERNAME}@login-phoenix.pace.gatech.edu'
 #Cray PiconGPU
 alias ccoe='ssh coe0012@poplar.cray.com'
 alias hzdr='ssh -Y jy140476@uts.hzdr.de'
@@ -57,3 +61,8 @@ alias summithome='ssh -X ${UCAMSNAME}@home.ccs.ornl.gov'
 alias chipc-login='ssh -Y ${USERNAME}@chipc-login.cc.gatech.edu'
 alias chipc-slurm='ssh -Y ${USERNAME}@chipc-slurmctl.cc.gatech.edu'
 alias slurm-db='ssh -Y ${USERNAME}@slurm-db.cc.gatech.edu'
+#CS3220
+alias synestia1='ssh -Y ${USERNAME}@synestia1.cc.gatech.edu'
+
+#HPCAI - runs from rg-login only
+alias thorbf='ssh -i .ssh/jyoung_hpcai_ed25519 jyoung@gw.hpcadvisorycouncil.com'
