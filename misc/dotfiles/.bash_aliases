@@ -66,3 +66,6 @@ alias synestia1='ssh -Y ${USERNAME}@synestia1.cc.gatech.edu'
 
 #HPCAI - runs from rg-login only
 alias thorbf='ssh -i .ssh/jyoung_hpcai_ed25519 jyoung@gw.hpcadvisorycouncil.com'
+
+#JLSE
+alias thorbf='ssh -i .ssh/jyoung_hpcai_ed25519 jyoung@gw.hpcadvisorycouncil.com'
