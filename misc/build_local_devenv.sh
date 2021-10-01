@@ -30,7 +30,7 @@ cd $HOME/local/src
 build_tmux() {
 
 #Specify the versions of files so this script can be updated for newer versions
-TMUXV=2.7
+TMUXV=2.9a
 LIBEVENTV=2.1.8-stable
 NCURSESV=6.1
 
@@ -64,12 +64,14 @@ rm -rf ncurses-${NCURSESV}
 # tmux #
 tar xvzf tmux-${TMUXV}.tar.gz
 cd tmux-${TMUXV}
+sed -i 's/ac_option in --version -v -V -qversion/ac_option in --version -v/g' configure
+sed -i 's/--vers | -V/--vers/g' configure
 # Compile tmux with static libraries (no shared lib dependencies). Note that this requires that libc.a be installed or the configure script will fail
 #./configure --enable-static CFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-static -static-libgcc -L$HOME/local/lib -L$HOME/local/include/ncurses -L$HOME/local/include -levent"
 #CPPFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-static -static-libgcc -L$HOME/local/include -L$HOME/local/include/ncurses -L$HOME/local/lib -levent" make -j4
 # OR compile tmux with shared libraries
-./configure CFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-L$HOME/local/lib -L$HOME/local/include/ncurses -L$HOME/local/include -levent"
-CPPFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-L$HOME/local/include -L$HOME/local/include/ncurses -L$HOME/local/lib -levent" make -j4
+./configure CFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-L$HOME/local/lib64 -L$HOME/local/lib -L$HOME/local/include/ncurses -L$HOME/local/include -levent"
+CPPFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-L$HOME/local/lib64 -L$HOME/local/include -L$HOME/local/include/ncurses -L$HOME/local/lib -levent" make -j4
 cp tmux $HOME/local/bin
 cd ..
 rm tmux-${TMUXV}.tar.gz
@@ -79,31 +81,29 @@ echo "$HOME/local/bin/tmux is now available. You can optionally add $HOME/local/
 
 }
 
-#Select which packages to install
-build_tmux
 
-BEGINCOMMENT
 
 #######################
 ###### Now vim74 ######
 #######################
-
+build_vim() {
 cd $HOME/local/src
-
-wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
-tar xvjf vim-7.4.tar.bz2
-cd vim74
+VIMV=8.1
+wget ftp://ftp.vim.org/pub/vim/unix/vim-${VIMV}.tar.bz2
+tar xvjf vim-${VIMV}.tar.bz2
+cd vim81
 LDFLAGS="-L$HOME/local/lib -L$HOME/local/lib64" ./configure --prefix=$HOME/local --enable-cscope --without-x --enable-gui=no --with-tlib=ncurses --enable-pythoninterp --with-python-config-dir=/usr/lib64/python2.6/config --with-features=huge
 make 
 make install
 cd ..
-rm vim-7.4.tar.bz2
-rm -rf vim74
-
+rm vim-${VIMVERSION}.tar.bz2
+rm -rf vim81
+}
 
 ########################
 ######## Now zsh #######
 ########################
+build_zsh() {
 cd $HOME/local/src
 wget http://downloads.sourceforge.net/project/zsh/zsh/5.1/zsh-5.1.tar.gz
 tar xvzf zsh-5.1.tar.gz
@@ -114,10 +114,12 @@ make install
 cd ..
 rm zsh-5.1.tar.gz
 rm -rf zsh-5.1
+}
 
 ###########################
 ###### Now autotools ######
 ###########################
+build_autotools() {
 wget http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
 wget http://ftp.gnu.org/gnu/automake/automake-1.15.tar.gz
 wget http://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.gz
@@ -172,10 +174,12 @@ make install
 cd ..
 rm pkg-config-0.28.tar.gz
 rm -rf pkg-config-0.28
+}
 
 #######################
 ####### Now git #######
 #######################
+build_git() {
 cd $HOME/local/src
 git clone http://github.com/git/git
 cd git
@@ -183,5 +187,11 @@ make prefix=$HOME/local all
 make prefix=$HOME/local install 
 cd ..
 rm -rf git
+}
 
-ENDCOMMENT
+#Comment out specific functions to build/not build specific tools.
+#Select which packages to install
+build_tmux
+build_vim
+build_autotools
+build_git

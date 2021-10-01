@@ -57,15 +57,21 @@ alias ccoe='ssh coe0012@poplar.cray.com'
 alias hzdr='ssh -Y jy140476@uts.hzdr.de'
 alias summit='ssh -X ${UCAMSNAME}@summit.olcf.ornl.gov'
 alias summithome='ssh -X ${UCAMSNAME}@home.ccs.ornl.gov'
+alias spock='ssh ${UCAMSNAME}@spock.olcf.ornl.gov'
 #CHIPC
 alias chipc-login='ssh -Y ${USERNAME}@chipc-login.cc.gatech.edu'
 alias chipc-slurm='ssh -Y ${USERNAME}@chipc-slurmctl.cc.gatech.edu'
 alias slurm-db='ssh -Y ${USERNAME}@slurm-db.cc.gatech.edu'
-#CS3220
+#CS3220 - synestia1-18; pynq-z2-<1-10>.cc.gatech.edu
 alias synestia1='ssh -Y ${USERNAME}@synestia1.cc.gatech.edu'
+alias volvo='ssh jeffyoung@volvo.cc.gt.atl.ga.us'
+#Kernel machines
+alias aries1='ssh -Y ${USERNAME}@aries1.cc.gatech.edu'
+alias aries3='ssh -Y ${USERNAME}@aries3.cc.gatech.edu'
 
 #HPCAI - runs from rg-login only
 alias thorbf='ssh -i .ssh/jyoung_hpcai_ed25519 jyoung@gw.hpcadvisorycouncil.com'
 
 #JLSE
-alias thorbf='ssh -i .ssh/jyoung_hpcai_ed25519 jyoung@gw.hpcadvisorycouncil.com'
+#alias jlse='ssh -i .ssh/jyoung_ng_triad ${UCAMSNAME}@login.jlse.login.gov'
+alias jlse='ssh ${UCAMSNAME}@login.jlse.anl.gov.'
